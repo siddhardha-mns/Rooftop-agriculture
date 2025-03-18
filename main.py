@@ -4,7 +4,7 @@ import google.generativeai as genai
 # Set page title and layout
 st.set_page_config(page_title="RoofTop Gardening", layout="wide")
 
-# Apply custom CSS for background image
+# Apply custom CSS for background image (without white overlay)
 page_bg_img = f"""
 <style>
     body {{
@@ -14,7 +14,6 @@ page_bg_img = f"""
         background-attachment: fixed;
     }}
     .stApp {{
-        background: rgba(255, 255, 255, 0.8);  /* Slight white overlay for readability */
         padding: 20px;
         border-radius: 10px;
     }}
@@ -63,27 +62,27 @@ if page == "Home":
     
     st.markdown("""
     RoofTop gardening transforms underutilized rooftop spaces into thriving green areas.  
-    This web app serves as your *go-to guide* for starting and maintaining a *cost-effective, sustainable* garden right on your terrace.  
+    This web app serves as your **go-to guide** for starting and maintaining a **cost-effective, sustainable** garden right on your terrace.  
 
-    With easy-to-follow tips and expert recommendations, you can enjoy *fresh, organic produce* while contributing to a greener environment.
+    With easy-to-follow tips and expert recommendations, you can enjoy **fresh, organic produce** while contributing to a greener environment.
     """)
 
     st.header("🌱 Why RoofTop Gardening?")
     st.markdown("""
-    - *Utilize Your Space:* Convert rooftops into lush gardens.
-    - *Grow Fresh & Organic:* Enjoy pesticide-free, home-grown produce.
-    - *Cost-Effective Solutions:* Gardening tips that don’t break the bank.
-    - *Health & Well-being:* Gardening reduces stress and promotes a healthier lifestyle.
-    - *Eco-Friendly Choice:* Green spaces help lower urban heat and improve air quality.
+    - **Utilize Your Space:** Convert rooftops into lush gardens.
+    - **Grow Fresh & Organic:** Enjoy pesticide-free, home-grown produce.
+    - **Cost-Effective Solutions:** Gardening tips that don’t break the bank.
+    - **Health & Well-being:** Gardening reduces stress and promotes a healthier lifestyle.
+    - **Eco-Friendly Choice:** Green spaces help lower urban heat and improve air quality.
     """)
 
     st.header("🚀 What You’ll Find Here")
     st.markdown("""
-    ✅ *Step-by-step gardening guides*  
-    ✅ *Best plants for rooftop gardening*  
-    ✅ *DIY solutions for low-cost gardening*  
-    ✅ *Organic farming techniques*  
-    ✅ *Community & expert advice*  
+    ✅ **Step-by-step gardening guides**  
+    ✅ **Best plants for rooftop gardening**  
+    ✅ **DIY solutions for low-cost gardening**  
+    ✅ **Organic farming techniques**  
+    ✅ **Community & expert advice**  
     """)
 
     st.info("🌍 Start your RoofTop gardening journey today and make a positive impact on your health and the environment!")
@@ -91,7 +90,7 @@ if page == "Home":
 # Chatbot Page (Gemini Flash 2 API Integration)
 elif page == "Chatbot":
     st.title("🤖 Gardening Assistant Chatbot")
-    st.markdown("Ask anything about *RoofTop gardening* and get instant responses powered by *Gemini Flash 2 AI*!")
+    st.markdown("Ask anything about **RoofTop gardening** and get instant responses powered by **Gemini Flash 2 AI**!")
 
     # Initialize Gemini Model
     model = setup_gemini()
@@ -108,7 +107,7 @@ elif page == "Chatbot":
                     try:
                         response = model.generate_content(user_input)
                         st.subheader("🤖 AI Response:")
-                        st.markdown(f"*{response.text}*")
+                        st.markdown(f"**{response.text}**")
                     except Exception as e:
                         st.error("⚠️ Error: Could not process your request. Please check your API key and try again.")
             else:
@@ -136,7 +135,7 @@ elif page == "Forum":
         st.write("### 🌿 Community Discussions")
         for idx, post in enumerate(st.session_state.forum_data):
             with st.container():
-                st.markdown(f"*📝 {post['user']} says:*")
+                st.markdown(f"**📝 {post['user']} says:**")
                 st.info(post["content"])
                 
                 # Form to reply to a post
@@ -152,9 +151,9 @@ elif page == "Forum":
 
                 # Display replies
                 if post["replies"]:
-                    st.write("📌 *Replies:*")
+                    st.write("📌 **Replies:**")
                     for reply in post["replies"]:
-                        st.markdown(f"➡️ *{reply['user']}*: {reply['content']}")
+                        st.markdown(f"➡️ **{reply['user']}**: {reply['content']}")
 
 # Footer
-st.
+st.sidebar.write("🔗 More features coming soon!")
