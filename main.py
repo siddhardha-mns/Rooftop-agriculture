@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+
 
 # Set page title and layout
 st.set_page_config(page_title="RoofTop Gardening", layout="wide")
